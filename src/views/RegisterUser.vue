@@ -1,16 +1,30 @@
 <template>
-  <div class="home page">
-    <form @submit.prevent="login">
+  <div class="home">
+    <img alt="Vue logo" src="../assets/logo.png" />
+    <p class="blue">{{ msg }}</p>
+    <form @submit.prevent="register">
+      <InputField
+        type="text"
+        placeholder="Firstname"
+        id="firstname"
+        @updateValue="updateInputValue($event)"
+      />
+      <InputField
+        type="text"
+        placeholder="Lastname"
+        id="lastname"
+        @updateValue="updateInputValue($event)"
+      />
       <InputField
         type="email"
         placeholder="Email"
-        id="emailLogin"
+        id="email"
         @updateValue="updateInputValue($event)"
       />
       <InputField
         type="password"
         placeholder="Password"
-        id="passwordLogin"
+        id="password"
         @updateValue="updateInputValue($event)"
       />
       <input type="submit" />

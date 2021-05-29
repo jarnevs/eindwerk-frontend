@@ -21,7 +21,6 @@ export default Vue.extend({
         this.id,
         value,
       ]);
-      console.log(element.value);
     },
   },
 });
