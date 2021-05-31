@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
 import Home from '../views/Home.vue';
-import Login from '../views/Login.vue';
+import RegisterUser from '../views/RegisterUser.vue';
 
 Vue.use(VueRouter);
 
@@ -12,12 +12,12 @@ const routes: Array<RouteConfig> = [
     component: Home,
   },
   {
-    path: '/login',
-    name: 'Login',
+    path: '/register',
+    name: 'Register',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: Login,
+    component: RegisterUser,
   },
 ];
 

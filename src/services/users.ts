@@ -22,13 +22,14 @@ const loginUser = async(data:
     username: string, 
     password: string
   }): Promise<any> => {
-  const  result =  await axiosNoAuth.post(
-    '/auth/login',
-    data,  
-  );
+    const  result =  await axiosNoAuth.post(
+      '/auth/login',
+      data,
+    );
 
-  console.log(result);
-  return result;
+    console.log(result);
+
+    return result.data;
 }
 
 export {

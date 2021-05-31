@@ -1,13 +1,28 @@
-body {
-  color: yellow;
+* {
+  font-family: $font-text;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+h1,
+h2,
+h3,
+h4 {
+  font-family: $font-title;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+}
+
+.col__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #nav {

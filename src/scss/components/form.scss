@@ -1,0 +1,30 @@
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .form-group {
+    width: 100%;
+    margin-bottom: 20px;
+
+    &__input {
+      outline: 0;
+      width: 100%;
+      border: 1px solid $black;
+      border-radius: 20px;
+      padding: 8px 16px;
+
+      &:focus {
+        border-color: $secondary;
+      }
+    }
+  }
+}
+
+.v-btn.cta-button {
+  text-transform: none;
+  text-indent: 0;
+  letter-spacing: 0;
+  font-size: 1rem !important;
+}

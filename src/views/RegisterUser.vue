@@ -41,7 +41,7 @@ import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
 import { registerUser, loginUser } from '@/services/users';
 
 export default Vue.extend({
-  name: 'Home',
+  name: 'RegisterUser',
   data: () => ({
     msg: 'Hello!',
     firstname: '',

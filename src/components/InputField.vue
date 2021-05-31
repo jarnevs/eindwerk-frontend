@@ -1,6 +1,6 @@
 <template>
 <div class="form-group">
-  <input :id="id" :type="type" :placeholder="placeholder" @input="updateValue">
+  <input :id="id" :type="type" :placeholder="placeholder" @input="updateValue" class="form-group__input" required>
 </div>
 </template>
 <script lang="ts">
