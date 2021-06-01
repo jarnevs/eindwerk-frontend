@@ -6,7 +6,7 @@
 
   .form-group {
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 
     &__input {
       outline: 0;
@@ -27,4 +27,6 @@
   text-indent: 0;
   letter-spacing: 0;
   font-size: 1rem !important;
+  padding: 6px 16px !important;
+  height: 42px !important;
 }

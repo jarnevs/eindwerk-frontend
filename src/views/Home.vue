@@ -66,7 +66,7 @@
         lg="6" 
       >
         <div class="col__content">
-          <h2 class="text-center">No account yet?</h2>
+          <h2 class="text-center">Are you an artist?</h2>
           <v-btn 
             type="submit"
             elevation="0"
