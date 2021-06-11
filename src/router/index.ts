@@ -2,6 +2,11 @@ import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
 import Home from '../views/Home.vue';
 import RegisterUser from '../views/RegisterUser.vue';
+import RegisterArtist from '../views/RegisterArtist.vue';
+import Artists from '../views/Artists.vue';
+import Following from '../views/Following.vue';
+import Artist from '../views/Artist.vue';
+import PostDetail from '../views/PostDetail.vue';
 
 Vue.use(VueRouter);
 
@@ -14,10 +19,33 @@ const routes: Array<RouteConfig> = [
   {
     path: '/register',
     name: 'Register',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
+    
     component: RegisterUser,
+  },
+  {
+    path: '/register-artist',
+    name: 'Register Artist',
+    component: RegisterArtist,
+  },
+  {
+    path: '/artists',
+    name: 'Artists',
+    component: Artists,
+  },
+  {
+    path: '/following',
+    name: 'Following',
+    component: Following,
+  },
+  {
+    path: '/artists/:id',
+    name: 'Artist',
+    component: Artist,
+  },
+  {
+    path: '/posts/:id',
+    name: 'Post',
+    component: PostDetail,
   },
 ];
 

@@ -1,38 +1,99 @@
-import { axiosNoAuth } from '@/services/axios-config';
+import { axiosAuth, axiosNoAuth } from '@/services/axios-config';
 
-const registerUser = async (data: 
-  {
-    firstname: string,
-    lastname: string,
-    email: string,
-    password: string,
-  }): Promise<any> => {
+interface Data {
+  email: string,
+  password: string,
+  type: string,
+}
+
+interface UserData extends Data {
+  title: string,
+  lastname: string,
+  firstname: string,
+  phone: string,
+}
+
+interface ArtistData extends Data {
+  artistName: string,
+  genre: string,
+  description: string,
+}
+
+const registerUser = async (data: UserData | ArtistData): Promise<any> => {
   const { data: userData } = await axiosNoAuth.post(
     '/users/register',
     data,
   );
   
-  console.log(userData);
-
   return userData;
 };
 
-const loginUser = async(data: 
+const loginUser = async (data: 
   {
     username: string, 
     password: string
   }): Promise<any> => {
-    const  result =  await axiosNoAuth.post(
+    const  { data: userData } =  await axiosNoAuth.post(
       '/auth/login',
       data,
     );
 
-    console.log(result);
+    return userData;
+}
 
-    return result.data;
+const getArtists = async () => {
+  try {
+    const { data } = await axiosAuth().get('/users/artists');
+    return data;
+  } catch(e) {
+    return e.response;
+  }
+}
+
+const getUser = async () => {
+  try {
+    const { data } = await axiosAuth().get('/users/profile');
+    return data;
+  } catch (e) {
+    return e.response;
+  }
+}
+
+const getUserFollowing = async() => {
+   try {
+    const { data } = await axiosAuth().get('/users/following');
+    return data;
+  } catch (e) {
+    return e.response;
+  }
+}
+
+const getArtist = async(artistId: string) => {
+   try {
+    const { data } = await axiosAuth().get(`/users/artists/${artistId}`);
+    return data;
+  } catch (e) {
+    return e.response;
+  }
+}
+
+const followArtist = async (artistId: string) => {
+  const { data } = await axiosAuth().patch(
+    '/users/follow',
+    {
+      artistId
+    },
+  );
+  
+  return data;
 }
 
 export {
   registerUser,
   loginUser,
+  getArtists,
+  getUser,
+  getUserFollowing,
+  followArtist,
+  getArtist,
 };

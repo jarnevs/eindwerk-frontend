@@ -1,0 +1,170 @@
+.card {
+  overflow: hidden;
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 202px;
+  margin-bottom: 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  color: $white;
+
+  &__overlay {
+    position: absolute;
+    background: linear-gradient(to top, $black, transparent);
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 50%;
+    padding: 0 20px;
+
+    transition: all 0.2s ease-in-out;
+  }
+
+  &__content {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    height: 35%;
+    padding: 20px;
+    color: $white;
+
+    transition: all 0.2s ease-in-out;
+  }
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  &:hover {
+    .card {
+      &__overlay {
+        height: 100%;
+      }
+
+      &__content {
+        height: 80%;
+      }
+    }
+  }
+}
+
+.follow-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 1;
+  top: 15px;
+  right: 15px;
+  background: $cta;
+  width: 35px;
+  height: 35px;
+  border-radius: 50px;
+  text-decoration: none;
+
+  &:hover {
+    background: $danger;
+  }
+}
+
+.cards {
+  margin-top: 20px;
+}
+
+.post {
+  overflow: hidden;
+  margin-bottom: 20px;
+  border: 1px solid $black;
+  border-radius: 30px;
+  padding-top: 20px;
+
+  &__tag {
+    display: inline-block;
+    margin-bottom: 16px;
+    margin-left: 20px;
+    background: $secondary;
+    border-radius: 50px;
+    padding: 2px 20px;
+
+    color: $white;
+  }
+
+  &__head {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+
+    &-picture {
+      border: 2px solid $black;
+      border-radius: 50px;
+      padding: 10px;
+      margin-right: 10px;
+    }
+
+    h2 {
+      margin-bottom: 0px;
+    }
+  }
+
+  &__body {
+    margin: 10px 0;
+    padding: 0 20px;
+  }
+
+  &__footer {
+    border-top: 1px solid $black;
+    display: flex;
+    align-items: center;
+
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 16px 0;
+      text-decoration: none;
+      color: $black !important;
+    }
+
+    &-like {
+      flex: 0 0 25%;
+    }
+
+    &-comment {
+      border-left: 1px solid $black;
+      flex: 0 0 75%;
+
+      span {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  &__create-comment {
+    border-top: 1px solid $black;
+    border-bottom: 1px solid $black;
+    padding: 20px;
+
+    form {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .form-group {
+      flex: 0 0 75%;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.comment {
+  padding-top: 20px;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid $black;
+  }
+}

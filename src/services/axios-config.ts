@@ -4,11 +4,50 @@ const baseURL = process.env.NODE_ENV === 'development' ? 'http://localhost:3000'
  
 const axiosNoAuth = axios.create({
   baseURL,
-  // headers: {
-  //   'Access-Control-Allow-Origin': '*'
-  // }
 });
+
+const axiosAuth = () => {
+  const jwtToken = localStorage.getItem('token');
+
+  const axiosInstance = axios.create({
+    baseURL,
+    headers: {
+      Authorization: `Bearer ${jwtToken}`
+    }
+  })
+
+  // axiosInstance.interceptors.request.use(
+  //   (request) => {
+  //     console.log(request);
+  //     return Promise.resolve(request);
+  //   },
+  //   (error) => {
+  //     if (error.statusCode === 401) {
+  //       location.replace('#/');  
+  //       return error;    
+  //     };
+  //   }
+  // )
+
+  // axiosInstance.interceptors.response.use(
+  //   (request) => {
+  //     console.log(request);
+  //     return Promise.resolve(request);
+  //   },
+  //   (error) => {
+  //     console.log(error);
+  //     if (error.statusCode === 401) {
+  //       Promise.resolve(error);
+  //       location.replace('#/');
+  //     };
+  //   }
+  // )
+
+  return axiosInstance;
+} 
+
 
 export {
   axiosNoAuth,
+  axiosAuth,
 };

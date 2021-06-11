@@ -1,0 +1,64 @@
+.hero-mobile,
+.hero-large {
+  overflow: hidden;
+  border-bottom: 1px solid $black;
+
+  &__image {
+    width: 100%;
+    height: 215px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+
+    h1 {
+      flex: 0 0 70%;
+      margin-bottom: 0;
+    }
+
+    button {
+      flex: 0 0 30%;
+    }
+  }
+}
+
+.hero-large {
+  border: 1px solid $black;
+  border-radius: 30px;
+}
+
+@media (max-width: 960px) {
+  .hero-large {
+    display: none;
+  }
+}
+
+@media (min-width: 960px) {
+  .hero-mobile {
+    display: none;
+  }
+}
+
+@media (min-width: 1880px) {
+  .artists {
+    display: flex;
+    flex-wrap: wrap;
+
+    & > * {
+      flex: 0 0 32%;
+
+      &:not(:nth-child(3n + 3)) {
+        margin-right: 22px;
+      }
+    }
+  }
+}
