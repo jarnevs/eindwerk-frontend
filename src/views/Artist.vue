@@ -124,7 +124,9 @@
               id="event"
               @click="togglePopUp($event)"
             >New event</v-btn>
-            <div class="cards"></div>
+            <div class="cards artists">
+              <Card v-for="event in events" :key="event.id" :cardData="event" :user="user" type="event" href="events" @followArtist="followArtist($event)"/>
+            </div>
           </div>
           <div class="pop-up" v-if="showPopUp">
             <div class="pop-up__content">
@@ -143,8 +145,38 @@
                 />
                 <Button text="Create post" type="submit" color="cta"/>
               </v-form>
-              <v-form v-else>
-                hallo
+              <v-form v-else class="pop-up__form" @submit.prevent="createEvent">
+                <InputField
+                  type="text"
+                  placeholder="Title"
+                  id="title"
+                  @updateValue="updateInputValue($event)"
+                />
+                <InputField
+                  type="date"
+                  placeholder="Date"
+                  id="eventDate"
+                  @updateValue="updateInputValue($event)"
+                />
+                <InputField
+                  type="time"
+                  placeholder="Time"
+                  id="eventTime"
+                  @updateValue="updateInputValue($event)"
+                />
+                <InputField
+                  type="text"
+                  placeholder="Location"
+                  id="location"
+                  @updateValue="updateInputValue($event)"
+                />
+                <TextArea 
+                  id="description"
+                  placeholder="Description" 
+                  @updateValue="updateInputValue($event)"
+                  extraClass="form-group__input--textarea-post"
+                />
+                <Button text="Create event" type="submit" color="cta"/>
               </v-form>
             </div>
           </div>
@@ -157,13 +189,16 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import InputField from '@/components/InputField.vue';
 import TextArea from '@/components/TextArea.vue';
 import Button from '@/components/Button.vue';
 import Post from '@/components/Post.vue';
+import Card from '@/components/Card.vue';
 
 import { getArtist } from '@/services/users';
 import { getPostsArtist, createPost, likePost, Post as PostData } from '@/services/posts';
 import store from '@/store';
+import { createEvent, getEventsArtist } from '@/services/events';
 
 export default Vue.extend({
   name: 'Artist',
@@ -174,21 +209,30 @@ export default Vue.extend({
     posts: [] as PostData[],
     postsUsers: [] as PostData[],
     postsArtist: [] as PostData[],
+    events: [] as {id: string, title: string, description:string, date: number, location: string}[],
     showPopUp: false,
     popUpFor: '',
     message: '',
+    title: '',
+    eventDate: '',
+    eventTime: '',
+    location: '',
+    description: '',
   }),
   components: {
     Post,
+    Card,
+    InputField,
     TextArea,
     Button,
   },
   async mounted() {
     this.artist = await getArtist(this.$route.params.id);
     this.user = store.getters.getUser;
-    console.log(this.user);
     this.posts = await getPostsArtist(this.$route.params.id);
     this.filterPosts();
+    this.events = await getEventsArtist(this.$route.params.id);
+    this.sortEvents();
   },
   methods: {
     async changeSelectedItem(e: InputEvent) {
@@ -215,6 +259,26 @@ export default Vue.extend({
 
       this.message = '';
       this.popUpFor = '';
+      this.showPopUp = !this.showPopUp;
+    },
+    async createEvent() {
+      const eventDate = new Date(`${this.eventDate} ${this.eventTime}`)
+      console.log(eventDate);
+      await createEvent({
+        title: this.title,
+        location: this.location,
+        date: eventDate.getTime(),
+        description: this.description,
+      })
+
+      this.events = await getEventsArtist(this.$route.params.id);
+      this.sortEvents();
+      this.popUpFor = '';
+      this.title = '';
+      this.eventDate = '';
+      this.eventTime = '';
+      this.location = '';
+      this.description = '';
       this.showPopUp = !this.showPopUp;
     },
     togglePopUp(e: Event) {
@@ -250,7 +314,10 @@ export default Vue.extend({
       await likePost(args.postId);
       this.posts = await getPostsArtist(this.$route.params.id);
       this.filterPosts();
-    }
+    },
+    sortEvents() {
+      this.events.sort((a, b) => (a.date > b.date) ? 1 : -1);
+    },
   },
 });
 

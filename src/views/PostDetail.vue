@@ -71,7 +71,7 @@ export default Vue.extend({
     },
     formatDate(createdOn: number): string {
       const date = new Date(createdOn);
-      const dateString = date.toLocaleDateString('en-GB', { hour: '2-digit', minute: '2-digit', hour12: true });
+      const dateString = date.toLocaleDateString('nl-BE', { hour: '2-digit', minute: '2-digit', hour12: false });
       
       return dateString.split(', ').join(' - ');
     },

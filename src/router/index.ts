@@ -7,6 +7,8 @@ import Artists from '../views/Artists.vue';
 import Following from '../views/Following.vue';
 import Artist from '../views/Artist.vue';
 import PostDetail from '../views/PostDetail.vue';
+import Events from '../views/Events.vue';
+import Event from '../views/Event.vue';
 
 Vue.use(VueRouter);
 
@@ -46,6 +48,16 @@ const routes: Array<RouteConfig> = [
     path: '/posts/:id',
     name: 'Post',
     component: PostDetail,
+  },
+  {
+    path: '/events',
+    name: 'Events',
+    component: Events,
+  },
+  {
+    path: '/events/:id',
+    name: 'Event',
+    component: Event,
   },
 ];
 

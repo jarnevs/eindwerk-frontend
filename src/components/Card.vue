@@ -4,7 +4,12 @@
       <v-icon size="22" color="white">fas fa-plus</v-icon>
     </div>
     <img src="@/assets/band.jpg" :alt="cardData.artistName" >
-    <div class="card__content">
+    <div v-if="type === 'event'" class="card__content card__content--show">
+      <h2>{{ cardData.title }} </h2>
+      <p>{{ cardData.location }}</p>
+      <p>{{ formatDate }}</p>
+    </div>
+    <div v-else class="card__content">
       <h2>{{ cardData.artistName }} </h2>
       <p>{{ shortenDescription }}</p>
     </div>
@@ -29,7 +34,13 @@ export default Vue.extend({
       const arrayDescriptionShortened: string[] = arrayDescription.slice(0, 20);
 
       return `${arrayDescriptionShortened.join(' ')}${arrayDescription.length < 20 ? '' : '...'}`;
-    }
+    },
+    formatDate() {
+      const date = new Date(this.cardData.date);
+      const dateString = date.toLocaleDateString('nl-BE', { hour: '2-digit', minute: '2-digit', hour12: false });
+      
+      return dateString.split(', ').join(' - ');
+    },
   },
   methods: {
     async followArtist(artistId: string) {

@@ -20,6 +20,18 @@
     align-items: center;
     padding: 12px;
 
+    &-buttons {
+      border-top: 1px solid $black;
+    }
+
+    &--event {
+      display: block;
+
+      p {
+        margin-bottom: 0;
+      }
+    }
+
     h1 {
       flex: 0 0 70%;
       margin-bottom: 0;

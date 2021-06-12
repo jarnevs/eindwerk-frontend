@@ -31,6 +31,15 @@
     color: $white;
 
     transition: all 0.2s ease-in-out;
+
+    &--show {
+      height: 60%;
+
+      h2,
+      p {
+        margin-bottom: 0;
+      }
+    }
   }
 
   img {
