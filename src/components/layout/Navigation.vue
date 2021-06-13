@@ -5,7 +5,7 @@
         <v-icon size="32" color="white">fas fa-arrow-right</v-icon>
       </a>
       <div class="profile-nav">
-        <a href="#/">
+        <a :href="user.type === 'user' ? `#/profile/user/${user.id}` : `#/profile/artist/${user.id}`">
           <v-icon size="100" color="white">fas fa-user</v-icon>
         </a>
         <h2 v-if="user.type === 'user'" class="white-title center">{{ user.firstname }}<br>{{ user.lastname }}</h2>

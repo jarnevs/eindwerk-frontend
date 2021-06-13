@@ -26,6 +26,11 @@ const getComments = async (parentId: string) => {
   return data;
 }
 
+const getPostsUser = async () => {
+  const { data } = await axiosAuth().get('/posts/posts/user');
+  return data;
+}
+
 const getPostsArtist = async (artistId: string) => {
   const { data } = await axiosAuth().get(`/posts/artist/${artistId}`);
   return data;
@@ -49,6 +54,7 @@ const likePost = async(postId: string) => {
 export {
   getPost,
   getPostsArtist,
+  getPostsUser,
   createPost,
   getComments,
   likePost,

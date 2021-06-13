@@ -9,6 +9,9 @@ import Artist from '../views/Artist.vue';
 import PostDetail from '../views/PostDetail.vue';
 import Events from '../views/Events.vue';
 import Event from '../views/Event.vue';
+import Carpool from '../views/Carpool.vue';
+import Posts from '../views/Posts.vue';
+import ProfileUser from '../views/ProfileUser.vue';
 
 Vue.use(VueRouter);
 
@@ -58,6 +61,26 @@ const routes: Array<RouteConfig> = [
     path: '/events/:id',
     name: 'Event',
     component: Event,
+  },
+  {
+    path: '/carpool',
+    name: 'Carpool',
+    component: Carpool,
+  },
+  {
+    path: '/posts',
+    name: 'Posts',
+    component: Posts,
+  },
+  {
+    path: '/profile/user/:id',
+    name: 'Profile User',
+    component: ProfileUser,
+  },
+  {
+    path: '/profile/artist/:id',
+    name: 'Profile Artist',
+    component: Artist,
   },
 ];
 

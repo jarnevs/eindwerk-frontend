@@ -19,7 +19,6 @@ export default new Vuex.Store({
     getIsLoggedIn: (state) => state.isLoggedIn,
     getMenuStatus: (state) => state.menuOpen,
     getUser: (state) => {
-      console.log(state.user);
       return state.user
     } ,
   },

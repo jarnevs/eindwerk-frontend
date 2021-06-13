@@ -177,3 +177,21 @@
     border-bottom: 1px solid $black;
   }
 }
+
+.carpool-card {
+  border: 1px solid $black;
+  padding: 16px;
+  border-radius: 30px;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__info-pickup {
+    p:first-child {
+      margin-bottom: 0px;
+    }
+  }
+}

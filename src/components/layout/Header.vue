@@ -10,7 +10,7 @@
           lg="6"
         >
           <div class="header-logo">
-            <a class="header-logo__container" href="#/">
+            <a class="header-logo__container" :href="isLoggedIn ? '#/posts' : '#/'">
               <img 
                 src="@/assets/logo.svg"
               />

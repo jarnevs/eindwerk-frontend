@@ -12,8 +12,14 @@ const getEventsArtist = async (artistId: string) => {
   return data;
 }
 
+
 const getEvent = async (eventId: string) => {
   const { data } = await axiosAuth().get(`/events/${eventId}`);
+  return data;
+}
+
+const getEventsCarpool = async () => {
+  const { data } = await axiosAuth().get(`/events/carpool`);
   return data;
 }
 
@@ -37,5 +43,6 @@ export {
   getEventsArtist,
   createEvent,
   getEvent,
-  updateStatus
+  updateStatus,
+  getEventsCarpool,
 }
