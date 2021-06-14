@@ -62,10 +62,10 @@ export default Vue.extend({
       store.dispatch('commitMenuStatus');
     },
     async logout() {
+      this.$router.replace({name: 'Home'})
       localStorage.removeItem('token');
       sessionStorage.removeItem('vuex');
       await store.dispatch('commitUser');
-      this.$router.replace({name: 'Home'})
     }
   },
 });
