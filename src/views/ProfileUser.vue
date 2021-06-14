@@ -7,10 +7,10 @@
         <div class="profile">
           <div class="profile__above">
             <div class="profile__info">
-              <div href="#/">
-                <v-icon size="100" color="white">fas fa-user</v-icon>
+              <div>
+                <v-icon size="100" color="black">fas fa-user</v-icon>
               </div>
-              <h2 class="center">{{ user.firstname }}<br>{{ user.lastname }}</h2>
+              <h1 class="center">{{ user.firstname }}<br>{{ user.lastname }}</h1>
             </div>
           </div>
         </div>

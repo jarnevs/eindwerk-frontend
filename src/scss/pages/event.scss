@@ -1,0 +1,22 @@
+@media (min-width: 960px) {
+  .detail-event-head {
+    display: flex;
+    justify-content: space-between;
+
+    & > div {
+      border-top: 0;
+      flex: 0 0 50%;
+    }
+  }
+}
+
+@media (min-width: 1904px) {
+  .detail-event-head {
+    & > div:first-child {
+      flex: 0 0 60%;
+    }
+    & > div:last-child {
+      flex: 0 0 40%;
+    }
+  }
+}

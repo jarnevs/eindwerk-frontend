@@ -16,7 +16,7 @@
           elevation="0"
           color="cta"
           rounded
-          class="white--text cta-button hide-button"
+          class="white--text cta-button"
           @click="changeStatus(cardData.id, true)"
         >
           <v-icon size="21" color="color">fas fa-plus</v-icon>
@@ -26,7 +26,7 @@
           elevation="0"
           color="black"
           rounded
-          class="white--text cta-button hide-button"
+          class="white--text cta-button"
           @click="changeStatus(cardData.id, false)"
         >
           <v-icon size="21" color="color">fas fa-trash</v-icon>

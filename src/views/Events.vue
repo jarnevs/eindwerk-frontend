@@ -23,7 +23,7 @@
           elevation="0"
           color="cta"
           rounded
-          class="white--text cta-button hide-button"
+          class="white--text cta-button"
           min-width="100%"
           max-width="100%"
           id="event"
@@ -35,7 +35,7 @@
       <v-col
         cols="12"
       >
-        <div class="artists">
+        <div class="artists events">
           <Card v-for="event in filteredEvents" :key="event.id" :cardData="event" :user="user" type="event" href="events" @followArtist="followArtist($event)"/>
         </div>
         <div class="pop-up" v-if="showPopUp">

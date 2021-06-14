@@ -48,39 +48,41 @@
             <div class="hero-large__image">
               <img src="@/assets/band.jpg" alt="">
             </div>
-            <div class="hero-large__info hero-mobile__info--event">
-              <h1>{{ event.title }}</h1>
-              <p>{{ event.location }}</p>
-              <p>{{ formatDate }}</p>
-            </div>
-            <div class="hero-mobile__info hero-mobile__info-buttons">
-              <v-btn
-                elevation="0"
-                :color="!!event.going && event.going.includes(user.id) ? 'cta': 'black'"
-                rounded
-                class="white--text cta-button"
-                min-width="102"
-                max-width="102"
-                @click="changeStatus('going')"
-              >Going</v-btn>
-              <v-btn
-                elevation="0"
-                :color="!!event.maybe && event.maybe.includes(user.id) ? 'cta': 'black'"
-                rounded
-                class="white--text cta-button"
-                min-width="102"
-                max-width="102"
-                @click="changeStatus('maybe')"
-              >Maybe</v-btn>
-              <v-btn
-                elevation="0"
-                :color="!!event.notGoing && event.notGoing.includes(user.id) ? 'cta': 'black'" 
-                rounded
-                class="white--text cta-button"
-                min-width="102"
-                max-width="102"
-                @click="changeStatus('not')"
-              >Not going</v-btn>
+            <div class="detail-event-head">
+              <div class="hero-large__info hero-mobile__info--event">
+                <h1>{{ event.title }}</h1>
+                <p>{{ event.location }}</p>
+                <p>{{ formatDate }}</p>
+              </div>
+              <div class="hero-large__info hero-large__info-buttons">
+                <v-btn
+                  elevation="0"
+                  :color="!!event.going && event.going.includes(user.id) ? 'cta': 'black'"
+                  rounded
+                  class="white--text cta-button"
+                  min-width="102"
+                  max-width="102"
+                  @click="changeStatus('going')"
+                >Going</v-btn>
+                <v-btn
+                  elevation="0"
+                  :color="!!event.maybe && event.maybe.includes(user.id) ? 'cta': 'black'"
+                  rounded
+                  class="white--text cta-button"
+                  min-width="102"
+                  max-width="102"
+                  @click="changeStatus('maybe')"
+                >Maybe</v-btn>
+                <v-btn
+                  elevation="0"
+                  :color="!!event.notGoing && event.notGoing.includes(user.id) ? 'cta': 'black'" 
+                  rounded
+                  class="white--text cta-button"
+                  min-width="102"
+                  max-width="102"
+                  @click="changeStatus('not')"
+                >Not going</v-btn>
+              </div>
             </div>
           </div>
         </v-col>
@@ -123,9 +125,6 @@ export default Vue.extend({
   async mounted() {
     this.event = await getEvent(this.$route.params.id);
     this.user = store.getters.getUser;
-    console.log(this.event);
-    console.log(this.event.maybe);
-    console.log(this.event.notGoing);
   },
   computed: {
     formatDate() {

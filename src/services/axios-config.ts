@@ -37,8 +37,8 @@ const axiosAuth = () => {
   //   (error) => {
   //     console.log(error);
   //     if (error.statusCode === 401) {
-  //       Promise.resolve(error);
   //       location.replace('#/');
+  //       Promise.resolve(error);
   //     };
   //   }
   // )

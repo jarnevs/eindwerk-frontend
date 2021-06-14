@@ -1,24 +1,24 @@
 <template>
   <div class="post">
     <span v-if="type !== 'artist'" class="post__tag">
-      {{ post.artist.name }}
+      {{ !!post.artist && post.artist.name }}
     </span>
     <div class="post__head">
       <div class="post__head-picture">
         <v-icon size="26" color="black">fas fa-user</v-icon>
       </div>
       <div class="post__head-name">
-        <h2 v-if="post.user.firstname !== ''">{{ post.user.firstname }} {{ post.user.lastname }}</h2>
-        <h2 v-else>{{ post.artist.name }}</h2>
+        <h2 v-if="!!post.user && post.user.firstname !== ''">{{ post.user.firstname }} {{ post.user.lastname }}</h2>
+        <h2 v-else>{{ !!post.artist && post.artist.name }}</h2>
         <span>{{ formatDate }}</span>
       </div>
     </div>
     <div class="post__body">
-      <p>{{ post.message }}</p>
+      <p>{{ !!post && post.message }}</p>
     </div>
     <div class="post__footer">
       <a class="post__footer-like" @click="likePost">
-        <v-icon size="21" :color="!post.likedBy.includes(user.id) ? 'black' : 'cta'">fas fa-heart</v-icon>
+        <v-icon size="21" :color="!!post.likedBy && !post.likedBy.includes(user.id) ? 'black' : 'cta'">fas fa-heart</v-icon>
       </a>
       <a :href="`#/posts/${post.id}`" class="post__footer-comment">
         <v-icon size="21" color="black">fas fa-comment-alt</v-icon><span>Comment</span>
@@ -37,7 +37,7 @@
           elevation="0"
           color="cta"
           rounded
-          class="white--text cta-button hide-button"
+          class="white--text cta-button"
           id="event"
         >
           <v-icon size="21" color="color">fas fa-paper-plane</v-icon>

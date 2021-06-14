@@ -58,9 +58,13 @@
   .hero-mobile {
     display: none;
   }
+
+  .hero-large__image {
+    height: 297px;
+  }
 }
 
-@media (min-width: 1880px) {
+@media (min-width: 1904px) {
   .artists {
     display: flex;
     flex-wrap: wrap;

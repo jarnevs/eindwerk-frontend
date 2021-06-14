@@ -7,7 +7,7 @@
         <div class="search search--full">
           <InputField placeholder="Search" id="search" type="text" @updateValue="filter($event)" />
         </div>
-        <div class="artists">
+        <div class="artists events">
           <Card v-for="artist in filteredArtists" :key="artist.id" :cardData="artist" :user="user" type="follows" href="artists" @followArtist="followArtist($event)"/>
         </div>
       </v-col>

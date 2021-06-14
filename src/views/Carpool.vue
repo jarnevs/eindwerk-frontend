@@ -6,7 +6,6 @@
     >
       <v-col
         cols="12"
-        md="4"
       >
         <div class="page-nav">
             <ul class="page-nav__container">
@@ -47,13 +46,12 @@
     >
       <v-col
         cols="12"
-        md="4"
       >
         <v-btn
           elevation="0"
           color="cta"
           rounded
-          class="white--text cta-button hide-button"
+          class="white--text cta-button"
           min-width="100%"
           max-width="100%"
           id="event"
@@ -65,13 +63,13 @@
       <v-col
         cols="12"
       >
-        <div v-if="selectedItem === 'find'" class="artists">
+        <div v-if="selectedItem === 'find'" class="artists events">
           <CarpoolCard v-for="spot in findSpots" :key="spot.id" :cardData="spot" find @changeStatus="changeStatus"/>
         </div>
-        <div v-else-if="selectedItem === 'accepted'" class="artists">
+        <div v-else-if="selectedItem === 'accepted'" class="artists events">
           <CarpoolCard v-for="spot in acceptedSpots" :key="spot.id" :cardData="spot" find accepted @changeStatus="changeStatus"/>
         </div>
-        <div v-else class="artists">
+        <div v-else class="artists events">
           <CarpoolCard v-for="spot in offeredSpots" :key="spot.id" :cardData="spot"/>
         </div>
         <div class="pop-up" v-if="showPopUp">
