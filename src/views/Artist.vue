@@ -84,7 +84,7 @@
               elevation="0"
               color="cta"
               rounded
-              class="white--text cta-button hide-button"
+              class="white--text cta-button"
               min-width="100%"
               max-width="100%"
               id="post-artist"
@@ -100,7 +100,7 @@
               elevation="0"
               color="cta"
               rounded
-              class="white--text cta-button hide-button"
+              class="white--text cta-button"
               min-width="100%"
               max-width="100%"
               id="post-user"
@@ -118,7 +118,7 @@
               elevation="0"
               color="cta"
               rounded
-              class="white--text cta-button hide-button"
+              class="white--text cta-button"
               min-width="100%"
               max-width="100%"
               id="event"
